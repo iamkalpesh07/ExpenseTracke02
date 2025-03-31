@@ -82,9 +82,6 @@
     flex-direction: column;
     justify-content: space-between;
     
-    justify-content: space-between;
-   
-    
 }
 
 #search{
@@ -153,6 +150,7 @@
     align-items: center;
     border-radius: 50%;
     z-index: 999;
+    margin-right: 0.5vh;
 }
 
 @media(max-width:500px){
