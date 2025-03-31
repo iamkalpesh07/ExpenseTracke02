@@ -51,10 +51,9 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100vh;
-    
-        
-
+    height: 93vh;
+    width: 20vh;
+    box-shadow: 0 0 1px ;
     
 }
 #nav_options{
@@ -64,7 +63,6 @@
     justify-content: space-between;
     /* box-shadow: 0.3px 0px 0px rgb(150, 150, 150); */
     justify-content: space-between;
-
 }
 
 #search{
@@ -73,14 +71,28 @@
     border-radius: 3vh;
     border: 0vh;
 }
+
 #expense_details{
-    background-color: rgba(0, 0, 0,0);
+    background-color: rgba(0, 0, 0,0.1);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     border: 0;
-    padding: 10px;
     transition: 0.2s;
-    width:20vh;
+    width:100%;
     height: 35vh;
+    border-top-right-radius: 5vh;
+    border-top-left-radius: 5vh;
 }
+.details{
+    padding: 0.5vh;
+}
+#month{
+    display: flex;
+    justify-content: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(158, 158, 158);
+    
+}
+
 
 
     
