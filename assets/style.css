@@ -132,7 +132,6 @@
 }
 
 #expand_button img{
-    /* background-color: rgba(0,0,0,0); */
     height: 3vh;
     margin: 1vh;
     filter:invert();
