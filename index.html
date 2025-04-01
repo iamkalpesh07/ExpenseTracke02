@@ -7,22 +7,70 @@
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+    
     <div class="header">
-        <button id="logo">SITE IMAGE HERE</button>
+        
+        <div id="logo">
+            <div onclick=expand_nav() id="expand_button"><img src="assets/ICONS/menu.png" alt=""></div>
+            <img src="assets/ICONS/site_logo_noBG.png" alt="">
+            <h2 id="site_name">Xpenso</h2>
+        </div>
+        <input id="search" placeholder="Search category">
+        <img id="user_page" src="assets/ICONS/user_logo.png">
     </div>
-    <div class="left-nav">
-        <button class="nav">Overview</button>
-        <button class="nav">Budgets</button>
-        <button class="nav">Charts</button>
-        <button class="nav">Calender</button>
-        <button class="nav">Settings</button>
+    <div class="page">
+        <div id="left-nav">
+            <div id="nav_options">
+                <button class="nav_button">Overview</button>
+                <button class="nav_button">Budgets</button>
+                <button class="nav_button">Charts</button>
+                <button class="nav_button">Calender</button>
+                <button class="nav_button">Settings</button>
+            </div>
+            <div id="expense_details">
+                <div class="details" id="month"><strong>THIS MONTH</strong></div>
+                <div class="details" >SPENT</div>
+                <div class="details">LIMIT</div>
+                <div class="details">REMAINING</div>
+            </div>
+        </div>
+
         
-        
-        
-    </div>
-    <div class="main-page">
+        <div class="main-page">
+
+
+
+            <!-- this part is only to check the positioning of the contents on the main site -->
+            <!-- <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div><div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div><div class="box"></div> -->
+
+
+            
+       </div>
+    
 
     </div>
-    
+
+    <script>
+        i=0;
+        function expand_nav(){
+            const nav=document.getElementById('left-nav');
+            if(i%2==0){
+                nav.style.display='none';  
+            }else{
+                nav.style.display='flex';  
+            }
+            i++;
+        }
+    </script>
+
 </body>
 </html>
