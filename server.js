@@ -1,8 +1,9 @@
+require('dotenv').config();
 const express = require('express');
 const server = express();
 const path = require('path');
-
-// Middleware to parse JSON requests
+const mongoose = require('mongoose');
+mongoose.connect(process.env.MONGODB_URI).then(() => console.log("\x1b[32m%s\x1b[0m",'Communication established with bank')).catch((err) => console.error("\x1b[31m%s\x1b[0m", 'Bank Network Down: ', err));
 server.use(express.json());
 server.set("view engine", "ejs");
 server.set("views", path.join(__dirname, "views"));
@@ -10,6 +11,7 @@ server.use(express.static(path.join(__dirname, "public")));
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 
+// Routes
 server.get("/login",(req, res)=>{
     res.render("login");
 })
