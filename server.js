@@ -10,8 +10,14 @@ server.use(express.static(path.join(__dirname, "public")));
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 
-server.get("/",(req, res)=>{
-    res.send("Hello World!");
+server.get("/login",(req, res)=>{
+    res.render("login");
+})
+server.get("/register",(req, res)=>{
+    res.render("register");
+})
+server.get("/home",(req, res)=>{
+    res.render("index");
 })
 
 // Start the server
