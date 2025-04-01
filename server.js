@@ -3,7 +3,7 @@ const express = require('express');
 const server = express();
 const path = require('path');
 const mongoose = require('mongoose');
-mongoose.connect(process.env.MONGODB_URI).then(() => console.log("\x1b[32m%s\x1b[0m",'Communication established with bank')).catch((err) => console.error("\x1b[31m%s\x1b[0m", 'Bank connection establishement failed : ', err));
+mongoose.connect(process.env.MONGODB_URI).then(() => console.log("\x1b[32m%s\x1b[0m",'Communication established with bank')).catch((err) => console.error("\x1b[31m%s\x1b[0m", 'Bank Network Down: ', err));
 server.use(express.json());
 server.set("view engine", "ejs");
 server.set("views", path.join(__dirname, "views"));
