@@ -18,7 +18,7 @@ server.get("/login",(req, res)=>{
 server.get("/register",(req, res)=>{
     res.render("register");
 })
-server.get("/home",(req, res)=>{
+server.get("/",(req, res)=>{
     res.render("index");
 })
 
