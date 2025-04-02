@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const session = require("express-session");
 const server = express();
 const path = require('path');
 const mongoose = require('mongoose');
@@ -10,7 +11,18 @@ server.set("views", path.join(__dirname, "views"));
 server.use(express.static(path.join(__dirname, "public")));
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
+server.use(session({
+    secret: "CodeZero", 
+    resave: false,        
+    saveUninitialized: true,  
+    cookie: { maxAge: 10 * 24 * 60 * 60 * 1000 } // 1 day
+}));
 
+// Importing routes
+const userRoute = require('./routes/userRoute');
+const transactionRoute = require('./routes/transactionRoute');
+server.use('/user', userRoute);
+server.use('/transaction', transactionRoute);
 // Routes
 server.get("/login",(req, res)=>{
     res.render("login");
