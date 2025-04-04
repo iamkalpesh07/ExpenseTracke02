@@ -3,6 +3,9 @@
     padding: 0;
    
 }
+body{
+    background-color: #a7d4f2;
+}
 #logo{
     height: 80%;
     text-align: center;
@@ -18,6 +21,7 @@
     
 }
 .header{
+    
     height: 8vh;
     /* border: 2px; */
     background-color: rgb(3, 67, 83);
@@ -60,13 +64,15 @@
 
     
 .login-page{
+    /* width: 100vh; */
     height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     /* background-color: red; */
-    background-color: wheat;
+    /* background-color: #a7d4f2; */
+    /* color: white; */
 }
 .input{
     height: 5vh;
@@ -102,7 +108,7 @@
 
 
 
-@media(max-width:500px){
+@media(max-width:800px){
     #site_name{
         background-color: red;
         display: none;
