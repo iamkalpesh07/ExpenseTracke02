@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+   
 }
 #logo{
     height: 80%;
@@ -12,17 +13,19 @@
 }
 #logo img{
     height: 7vh;
+    margin-right: 2vh;
 }
 .header{
-    height: 7vh;
+    height: 8vh;
     /* border: 2px; */
-    background-color: rgba(0, 110, 255, 1);
+    background-color: rgb(3, 67, 83);
     display: flex;
     align-items: center;
     justify-content: space-between;
     /* backdrop-filter: blur(7px); */
     position: sticky;
     top: 0;
+
     
 }
 #site_name{
@@ -35,11 +38,26 @@
     width: 5vh;
     height: 5vh;
     padding: 0.7vh;
+    filter: invert();
 
 }
 #user_page:hover{
     background-color: rgba(0, 0, 0,0.3);
 }
+#search{
+    width: 45%;
+    height: 70%;
+    border-radius: 3vh;
+    border: 0vh;
+    padding-left: 1vh;
+}
+/* CSS for header till here */
+
+
+
+
+
+
 .nav_button{
     background-color: rgba(0, 0, 0,0);
     border: 0;
@@ -84,13 +102,7 @@
     
 }
 
-#search{
-    width: 45%;
-    height: 70%;
-    border-radius: 3vh;
-    border: 0vh;
-    padding-left: 1vh;
-}
+
 
 #expense_details{
     background-color: rgba(0, 0, 0,0.05);
@@ -114,8 +126,7 @@
     
 }
 .page{
-    display: flex;
-    
+    display: flex;        
 }
 .box{
     width: 100px;
