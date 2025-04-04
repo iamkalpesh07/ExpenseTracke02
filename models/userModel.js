@@ -23,6 +23,22 @@ const UserSchema = new Schema({
     type: Number,
     default: 0
   },
+  customCategories: { 
+    type: [String], 
+    default: ["Food", "Travel", "Games", "Shopping", "Other"] 
+  },
+  subscriptions: [
+    {
+      name: { type: String, required: true },
+      cost: { type: Number, required: true },  
+    }
+  ],
+  goals: [
+    {
+      goalName: { type: String, required: true },
+      goalAmount: { type: Number, required: true },
+    }
+  ],
   createdAt: {
     type: Date,
     default: Date.now
