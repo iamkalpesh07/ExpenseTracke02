@@ -4,7 +4,10 @@ const router = express.Router();
 const { createUser, deleteUser, updateUser} = require('../components/user');
 
 // Create a new user
-router.post('/', createUser);
+router.post('/', (req, res) => {
+    console.log("Creating user...");
+    createUser(req, res);
+});
 // Update a user
 router.patch('/:id', updateUser);
 // Delete a user

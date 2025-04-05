@@ -1,5 +1,5 @@
 const User = require('../models/userModel');
-
+const express = require('express');
 const createUser = async(req, res) => {
     try {
         const userData = req.body;

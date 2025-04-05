@@ -21,14 +21,20 @@ server.use(session({
 // Importing routes
 const userRoute = require('./routes/userRoute');
 const transactionRoute = require('./routes/transactionRoute');
-server.use('/user', userRoute);
-server.use('/transaction', transactionRoute);
+server.use('/user/', userRoute);
+server.use('/transaction/', transactionRoute);
 // Routes
 server.get("/login",(req, res)=>{
     res.render("login");
 })
 server.get("/register",(req, res)=>{
     res.render("register");
+})
+server.get("/createUser",(req, res)=>{
+    res.render("userCreate");
+})
+server.get("/createTransaction",(req, res)=>{
+    res.render("createTransaction");
 })
 server.get("/home",(req, res)=>{
     res.render("index");
