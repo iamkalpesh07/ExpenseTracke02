@@ -30,7 +30,7 @@ server.get("/",(req, res)=>{
 server.get("/register",(req, res)=>{
     res.render("register");
 })
-server.get("/main",(req, res)=>{
+server.get("/home",(req, res)=>{
     res.render("index");
 })
 
