@@ -32,12 +32,31 @@
 
     </div>
     <script>
-        const button=document.getElementById('login_button');
-        button.addEventListener('click',function(){
-            const e=document.getElementById('email').value;
-            const p=document.getElementById('pass').value;
-            
-            
+        const button = document.getElementById('login_button');
+        button.addEventListener('click', async function() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('pass').value;
+
+            try {
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    alert('Login successful!');
+                    window.location.href = '/dashboard'; // Redirect to dashboard
+                } else {
+                    const error = await response.json();
+                    alert(`Error: ${error.message}`);
+                }
+            } catch (err) {
+                alert('An error occurred. Please try again.');
+            }
         });
     </script>
 
