@@ -24,7 +24,7 @@ const transactionRoute = require('./routes/transactionRoute');
 server.use('/user', userRoute);
 server.use('/transaction', transactionRoute);
 // Routes
-server.get("/login",(req, res)=>{
+server.get("/",(req, res)=>{
     res.render("login");
 })
 server.get("/register",(req, res)=>{
