@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<% layout("/layouts/boilerplate") %>
+
+<div class="container mt-5">
+  <div class="card p-4">
+    <h2 class="mb-4">Add Savings Goal</h2>
+
+    <form action="/goal/add" method="POST">
+      <div class="mb-3">
+        <label for="goalName" class="form-label">Goal Name</label>
+        <input type="text" class="form-control" id="goalName" name="goalName" required placeholder="e.g. New Phone, Trip to Goa">
+      </div>
+
+      <div class="mb-3">
+        <label for="goalAmount" class="form-label">Target Amount (₹)</label>
+        <input type="number" class="form-control" id="goalAmount" name="goalAmount" required placeholder="e.g. 10000">
+      </div>
+
+      <button type="submit" class="btn btn-success">Add Goal</button>
+      <a href="/dashboard" class="btn btn-secondary ms-2">Cancel</a>
+    </form>
+  </div>
+</div>

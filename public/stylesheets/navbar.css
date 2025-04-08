@@ -1,0 +1,135 @@
+nav{
+    position: sticky;
+    top: 0;
+    background: #f9f9f9;
+    box-shadow: 0 4px 10px 1px #f7f7f7;
+    display: flex;
+    flex-direction: row;
+    padding:10px 10px 3px 10px;
+    z-index: 100;
+    margin-bottom: 20px;
+    font-family: "Poppins", sans-serif;
+}
+nav .brand{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 21px;
+    font-weight: 450;
+    user-select: none;
+    cursor: pointer;
+}
+nav .brand #logo{
+    width:50px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+nav .rightSection{
+    position: absolute;
+    right: 25px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height:80%;
+    font-size: 26px;
+    color:#323232;
+    cursor: pointer;
+    
+}
+nav .rightSection .versionDisplay{
+    padding: 3px 10px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size: 18px;
+    margin-right: 20px;
+    border:2px solid #ec3aaa;
+    border-radius: 8px;
+    color:#393939;
+}
+nav .rightSection .versionDisplay i{
+    margin-left: 8px;
+    color:#ec3aaa;
+}
+
+
+/* Hamburger Menu */
+#hamburger{
+    height:100%;
+    position: fixed;
+    transform: translateX(200px);
+    top: 0;
+    right:0;
+    background:#e8e8e8;
+    padding: 100px 0 0 10px;
+    box-shadow: 0 -1px 3px 1px #b3b3b3;
+    z-index: 100;
+    transition: all 0.3s ease-in-out;
+}
+#hamburger .closeIcon{
+    position: absolute;
+    top: 30px;
+    right: 35px;
+    width:40px;
+    height:40px;
+    font-size: 20px;
+    cursor: pointer;
+    padding:5px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-in-out;
+}
+#hamburger .bar{
+    width:90%;
+    height:60px;
+    background:#fff;
+    box-shadow: 0 4px 10px 1px #d2d1d1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 8px auto 8px auto;
+    border-radius: 80px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-weight: 500;
+    color: #121212;
+}
+#hamburger a{
+    text-decoration: none;
+}
+#hamburger .logoutBar{
+    width:100px;
+    position: absolute;
+    bottom: 20px;
+    left:40px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 16px;
+    color: red;
+}
+#hamburger .logoutBar a{
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    color: #121212;
+}
+
+nav .rightSection i:hover, nav .rightSection #mode:hover{
+    transform: translateY(-0.4px);
+}
+#hamburger .bar:hover, #hamburger .closeIcon:hover{
+    background: #ededed;
+}
+
+
+ @media (min-width: 1201px) {
+    #hamburger{
+        width:30%;
+    }
+ }

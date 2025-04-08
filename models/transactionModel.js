@@ -27,6 +27,10 @@ const transactionSchema = new mongoose.Schema({
     required: false,
     default: null,
   },
+  goalName: {
+    type: String,
+    default: null
+  },
 
   date: { type: Date, default: Date.now }
 });

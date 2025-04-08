@@ -1,0 +1,96 @@
+<link rel="stylesheet" href="/stylesheets/dashboard.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<% layout("/layouts/boilerplate") %>
+<div class="container">
+    <h2 class="mb-4">Dashboard</h2>
+
+    <div class="row mb-4">
+      <div class="col-md-4 mb-3">
+        <div class="card summary-card p-3 bg-success text-white">
+          <h5>Total Balance</h5>
+          <h3>₹<%= user.currentBalance %></h3>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card summary-card p-3 bg-danger text-white">
+          <h5>Total Expenses</h5>
+          <h3>₹<%= totalExpenses %></h3>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card summary-card p-3 bg-primary text-white">
+          <h5>Total Savings</h5>
+          <h3>₹<%= totalSavings %></h3>
+        </div>
+      </div>
+    </div>
+   
+    <!-- Recent Transactions -->
+    <div class="card p-4 mb-4 section-card">
+        <div style="display:flex;align-content: center; justify-content: space-between; flex-direction: row;">
+            <h5 class="mb-3">Recent Transactions</h5>
+            <div>
+                <a href="/transaction/addexpense" class="btn btn-danger" style="width:90px;font-size: 10px;">Add Expense</a>
+                <a href="/transaction/addsaving" class="btn btn-success" style="width:90px;font-size: 10px;">Add Saving</a>
+            </div>
+        </div>
+      <% transactions.forEach(tx => { %>
+        <div class="transaction-item d-flex justify-content-between">
+          <div>
+            <strong><%= tx.description || tx.category || 'Savings' %></strong>
+            <div class="text-muted small"><%= tx.date.toDateString() %></div>
+          </div>
+          <div class="<%= tx.transactionType === 'expense' ? 'text-danger' : 'text-success' %>">
+            <%= tx.transactionType === 'expense' ? '-' : '+' %> ₹<%= tx.amount %>
+          </div>
+        </div>
+      <% }) %>
+
+      <!-- See All Button -->
+      <div class="text-end mt-3">
+        <a href="/transaction/history" class="btn btn-outline-primary">See All Transactions</a>
+      </div>
+    </div>
+
+    <!-- Subscriptions -->
+<div class="card p-4 mb-4 section-card">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">Subscriptions</h5>
+    <a href="/subscription/add" class="btn btn-outline-primary btn-sm">Add Subscription</a>
+  </div>
+
+  <% user.subscriptions.forEach(sub => { %>
+    <div class="subscription-item d-flex justify-content-between">
+      <div>
+        <strong><%= sub.name %></strong>
+        <div class="text-muted small">Renews monthly</div>
+      </div>
+      <div class="text-danger">₹<%= sub.cost %></div>
+    </div>
+  <% }) %>
+</div>
+
+
+
+   <!-- Goals -->
+<div class="card p-4 section-card">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">Savings Goals</h5>
+    <a href="/goal/add" class="btn btn-outline-success btn-sm">Add Goal</a>
+  </div>
+
+  <% user.goals.forEach(goal => {
+       const savedAmount = savingsByGoal[goal.goalName] || 0;
+       const percentage = Math.min(100, (savedAmount / goal.goalAmount) * 100);
+  %>
+    <div class="goal-item mt-3">
+      <strong><%= goal.goalName %></strong>
+      <div class="progress mt-2" style="height: 20px;">
+        <div class="progress-bar <%= percentage >= 80 ? 'bg-success' : 'bg-warning' %>" style="width: <%= percentage %>%">
+          ₹<%= savedAmount %> / ₹<%= goal.goalAmount %>
+        </div>
+      </div>
+    </div>
+  <% }) %>
+</div>
+</div>

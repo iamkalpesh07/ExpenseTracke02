@@ -1,12 +1,13 @@
 const User = require('../models/userModel');
 const express = require('express');
+
 const createUser = async(req, res) => {
     try {
         const userData = req.body;
         const newUser = new User(userData);
         await newUser.save();
-        req.session.id = newUser._id;
-        res.status(201).json(newUser);
+        req.session.userId = newUser._id;
+        res.redirect('/dashboard');
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
@@ -14,11 +15,11 @@ const createUser = async(req, res) => {
 
 const updateUser = async(req, res) => {
     try{
-        const user = await User.findByIdAndUpdate(req.session.id, req.body, {new: true});
+        const user = await User.findByIdAndUpdate(req.session.userId, req.body, {new: true});
         if(!user){
-            return res.status(404).json({ message: "User not found" });
+            return res.redirect('/authentication/login');
         }
-        res.json(user);
+        res.redirect('/dashboard');
     }
     catch(error){
         res.status(500).json({ message: error.message });
@@ -31,10 +32,11 @@ const deleteUser = async(req, res) => {
         if(!user){
             return res.status(404).json({ message: "User not found" });
         }
-        res.status(200).json({ message: "User deleted successfully" });
+        res.redirect('/login');
     }
     catch(error){
         res.status(500).json({ message: error.message });
     }
 }
+
 module.exports = {createUser, updateUser, deleteUser};

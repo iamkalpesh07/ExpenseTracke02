@@ -1,0 +1,29 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="container mt-4">
+  <h3 class="mb-4">Add Saving</h3>
+
+  <form action="/transaction/addsaving" method="POST">
+    <div class="mb-3">
+      <label for="amount">Amount</label>
+      <input type="number" class="form-control" name="amount" required>
+    </div>
+  
+    <div class="mb-3">
+      <label for="description">Description (optional)</label>
+      <input type="text" class="form-control" name="description">
+    </div>
+  
+    <div class="mb-3">
+      <label for="goalName">Select Goal (optional)</label>
+      <select class="form-control" name="goalName">
+        <option value="">-- No Goal --</option>
+        <% user.goals.forEach(goal => { %>
+          <option value="<%= goal.goalName %>"><%= goal.goalName %></option>
+        <% }) %>
+      </select>
+    </div>
+  
+    <button type="submit" class="btn btn-success">Add Saving</button>
+  </form>
+</div>
