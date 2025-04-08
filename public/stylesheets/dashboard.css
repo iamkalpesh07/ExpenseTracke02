@@ -1,0 +1,17 @@
+.summary-card {
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.08);
+  }
+  .section-card {
+    border-radius: 12px;
+    box-shadow: 0 0 6px rgba(0,0,0,0.05);
+  }
+  .transaction-item, .subscription-item, .goal-item {
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+  }
+  .transaction-item:last-child,
+  .subscription-item:last-child,
+  .goal-item:last-child {
+    border-bottom: none;
+  }

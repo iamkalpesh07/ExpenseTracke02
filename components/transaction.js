@@ -1,20 +1,20 @@
 const Transaction = require('../models/transactionModel');
-
 const createTransaction = async (req, res) => {
     try {
-        const { type, amount, description } = req.body;
-        if (!req.session.id || !type || !amount) {
+        const { transactionType, amount, description, category } = req.body;
+        if (!req.session.userId || !type || !amount) {
             return res.status(400).json({ message: "User, type, and amount are required" });
         }
-        const validTypes = ["expense", "withdraw", "saved"];
+        const validTypes = ["expense", "save"];
         if (!validTypes.includes(type)) {
             return res.status(400).json({ message: "Invalid transaction type" });
         }
         const transaction = new Transaction({
-            user: req.session.id,
-            type,
+            user: req.session.userId,
+            transactionType,
             amount,
-            description
+            description,
+            category
         });
         await transaction.save();
         res.status(201).json({ message: "Transaction created successfully", transaction });

@@ -14,7 +14,7 @@ const transactionSchema = new mongoose.Schema({
   transactionType: { 
     type: String, 
     required: true, 
-    enum: ["withdraw", "expense", "save"] 
+    enum: ["expense", "save"] 
   },
 
   category: { 
@@ -26,6 +26,10 @@ const transactionSchema = new mongoose.Schema({
     type: String,
     required: false,
     default: null,
+  },
+  goalName: {
+    type: String,
+    default: null
   },
 
   date: { type: Date, default: Date.now }

@@ -1,0 +1,35 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="container mt-4">
+  <h3 class="mb-4">Add Expense</h3>
+
+  <!-- Add Category Form -->
+  <form action="/transaction/addcategory" method="POST" class="mb-4 d-flex">
+    <input type="text" name="newCategory" class="form-control me-2" placeholder="New Category" required>
+    <button type="submit" class="btn btn-outline-primary">Add Category</button>
+  </form>
+
+  <!-- Expense Form -->
+  <form action="/transaction/addexpense" method="POST">
+    <div class="mb-3">
+      <label for="amount" class="form-label">Amount</label>
+      <input type="number" class="form-control" name="amount" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="category" class="form-label">Category</label>
+      <select name="category" class="form-select" required>
+        <% user.customCategories.forEach(category => { %>
+          <option value="<%= category %>"><%= category %></option>
+        <% }) %>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label">Description (optional)</label>
+      <input type="text" name="description" class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-danger">Add Expense</button>
+  </form>
+</div>

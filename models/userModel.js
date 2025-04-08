@@ -25,7 +25,7 @@ const UserSchema = new Schema({
   },
   customCategories: { 
     type: [String], 
-    default: ["Food", "Travel", "Games", "Shopping", "Other"] 
+    default: ["food", "travel", "games", "shopping", "other"] 
   },
   subscriptions: [
     {
@@ -45,4 +45,5 @@ const UserSchema = new Schema({
   }
 });
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('Customers', UserSchema);
+
