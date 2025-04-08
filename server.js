@@ -40,6 +40,9 @@ const Transaction = require('./models/transactionModel');
 server.get("/createUser",(req, res)=>{
     res.render("userCreate");
 })
+server.get('/', (req, res) => {
+    res.render('login');
+})
 server.get("/createTransaction",(req, res)=>{
     res.render("createTransaction");
 })
